@@ -30,7 +30,7 @@ class ProductoControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    // Escenario 1: POST /productos con datos válidos retorna 201 Created
+    
     @Test
     void postProducto_datosValidos_retorna201() throws Exception {
         Producto entrada = new Producto();
@@ -55,7 +55,7 @@ class ProductoControllerTest {
                 .andExpect(jsonPath("$.valor").value(75.0));
     }
 
-    // Escenario 2: POST /productos con nombre vacío retorna 400 Bad Request
+    
     @Test
     void postProducto_nombreVacio_retorna400() throws Exception {
         Producto entrada = new Producto();
@@ -71,7 +71,7 @@ class ProductoControllerTest {
                 .andExpect(status().isBadRequest());
     }
 
-    // Escenario 3: GET /productos retorna lista de productos y 200 OK
+    
     @Test
     void getProductos_hayProductos_retorna200ConLista() throws Exception {
         Producto p1 = new Producto();
@@ -94,7 +94,7 @@ class ProductoControllerTest {
                 .andExpect(jsonPath("$.length()").value(2));
     }
 
-    // Escenario 4: GET /productos sin productos retorna lista vacía y 200 OK
+    
     @Test
     void getProductos_sinProductos_retorna200ConListaVacia() throws Exception {
         when(productoService.listar()).thenReturn(List.of());
@@ -105,7 +105,7 @@ class ProductoControllerTest {
                 .andExpect(jsonPath("$.length()").value(0));
     }
 
-    // Escenario 5: POST /productos con valor negativo retorna 400 Bad Request
+    
     @Test
     void postProducto_valorNegativo_retorna400() throws Exception {
         Producto entrada = new Producto();
@@ -121,7 +121,7 @@ class ProductoControllerTest {
                 .andExpect(status().isBadRequest());
     }
 
-    // Escenario 6: GET /productos retorna JSON con todos los campos esperados
+    
     @Test
     void getProductos_retornaJsonConCamposCompletos() throws Exception {
         Producto p = new Producto();
