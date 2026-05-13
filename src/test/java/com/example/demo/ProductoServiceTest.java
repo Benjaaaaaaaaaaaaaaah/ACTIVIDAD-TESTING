@@ -24,7 +24,7 @@ class ProductoServiceTest {
     @InjectMocks
     private ProductoService productoService;
 
-    // Escenario 1: Guardar un producto válido exitosamente
+    
     @Test
     void guardar_productoValido_retornaProductoGuardado() {
         Producto producto = new Producto();
@@ -48,7 +48,7 @@ class ProductoServiceTest {
         verify(productoRepository, times(1)).save(producto);
     }
 
-    // Escenario 2: Guardar producto con nombre vacío lanza excepción
+   
     @Test
     void guardar_productoConNombreVacio_lanzaExcepcion() {
         Producto producto = new Producto();
@@ -64,7 +64,7 @@ class ProductoServiceTest {
         verify(productoRepository, never()).save(any());
     }
 
-    // Escenario 3: Guardar producto con valor negativo lanza excepción
+    
     @Test
     void guardar_productoConValorNegativo_lanzaExcepcion() {
         Producto producto = new Producto();
@@ -80,7 +80,7 @@ class ProductoServiceTest {
         verify(productoRepository, never()).save(any());
     }
 
-    // Escenario 4: Listar productos retorna todos los registros
+    
     @Test
     void listar_hayProductos_retornaLista() {
         Producto p1 = new Producto();
@@ -103,7 +103,7 @@ class ProductoServiceTest {
         verify(productoRepository, times(1)).findAll();
     }
 
-    // Escenario 5: Listar sin productos retorna lista vacía
+    
     @Test
     void listar_sinProductos_retornaListaVacia() {
         when(productoRepository.findAll()).thenReturn(List.of());
@@ -115,7 +115,7 @@ class ProductoServiceTest {
         verify(productoRepository, times(1)).findAll();
     }
 
-    // Escenario 6: Buscar producto por ID inexistente retorna Optional vacío
+    
     @Test
     void buscarPorId_idInexistente_retornaOptionalVacio() {
         when(productoRepository.findById(99L)).thenReturn(Optional.empty());
