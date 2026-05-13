@@ -1,13 +1,3 @@
-# Actividad 11 - Testing Unitario en Spring Boot con JUnit y Mockito
-
-## Parte 1: Escenarios de Prueba en Gherkin
-
-Entidad utilizada: **Producto** (con campos: "id", "nombre", "valor", "descripción")
-
-
-
-
-
 ### Escenario 1: Guardar un producto válido
 
 gherkin
