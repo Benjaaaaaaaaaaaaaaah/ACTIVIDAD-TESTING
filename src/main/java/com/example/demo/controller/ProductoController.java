@@ -14,7 +14,7 @@ public class ProductoController {
     @Autowired
     private ProductoService productoService;
 
-    // POST: guarda un producto
+    
     @PostMapping
     public ResponseEntity<?> guardar(@RequestBody Producto producto) {
         try {
@@ -25,7 +25,7 @@ public class ProductoController {
         }
     }
 
-    // GET: devuelve todos los productos
+    
     @GetMapping
     public ResponseEntity<Iterable<Producto>> listar() {
         return ResponseEntity.ok(productoService.listar());
